@@ -21,7 +21,7 @@ This repository contains:
 - The implementations of DenseNet, ResNet, and VGG that we used in our paper under **models/**.
 - Our implementation of tiny ResNet under models/ and our toy CCNN defined in demo_mnist.py.
 
-Checkered subsampling improves the accuracy of every architecture we test (VGG, DenseNet, Wide-ResNet, ResNet). Our tiny ResNet CCNNs achieve accuracy competitive with their full-sized CNN counterparts. Our toy CCNN model trained on MNIST with augmentations achieves accuracy competitive with capsule networks (8.2 million parameters) and beyond the baseline CNN used in the CapsNet paper (35.4 million parameters) with just 93,833 parameters. 
+Checkered subsampling improves the accuracy of every architecture we test on CIFAR10/CIFAR100 (VGG, DenseNet, Wide-ResNet, ResNet). Our tiny ResNet CCNNs achieve accuracy competitive with their full-sized CNN counterparts. Our toy CCNN model trained on MNIST with augmentations achieves accuracy competitive with capsule networks (8.2 million parameters) and beyond the baseline CNN used in the CapsNet paper (35.4 million parameters) with just 93,833 parameters. 
 
 ![Traditional subsampling](visualize_output/figure1.png)
 ![Checkered subsampling](visualize_output/figure2.png)
