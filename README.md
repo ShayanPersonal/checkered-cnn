@@ -9,6 +9,8 @@ Traditional          |  Checkered
 
 </center>
 
+- Paper: TBA
+- Slides: https://docs.google.com/presentation/d/1LU467UZQmdr9Vzfv39myZ7Ys4JVjIYiGiReDoTGdDPQ/edit?usp=sharing
 
 We present a new technique for increasing the receptive field of CNNs, checkered subsampling. Checkered subsampling layers generate drastically more informative feature maps than traditional subsampling layers and significantly improve the accuracy of modern CNNs in our experiments. Unlike dilation, checkered subsampling performs subsampling and reduces the complexity of deep layers. Checkered subsampling is part of a wider range of techniques we call multisampling.
 
