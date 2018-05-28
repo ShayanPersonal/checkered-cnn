@@ -36,7 +36,7 @@ Checkered subsampling improves the accuracy of every architecture we test on CIF
 ## How to run
 After you have cloned the repository, you can either visualize checkered subsampling or train networks on MNIST and CIFAR.
 
-To visualize a 64x64 image after 3 subsampling steps using the regularly spaced lattice method:
+To visualize a 64x64 image after 3 subsampling steps using the regularly spaced lattice method (output images can be found in the visualize_output/ folder):
 ```bash
 python visualize.py --im_size 64 --steps 3 --method lattice
 ```
@@ -54,4 +54,4 @@ To train ResNet18 as a CCNN on CIFAR10:
 python demo_cifar.py --data_path ../data/cifar --convert
 ```
 
-See each file for more information and arguments.
+If you want to customize stuff see each file for more information and arguments.
