@@ -24,7 +24,7 @@ This repository contains:
 
 Checkered subsampling improves the accuracy of every architecture we test on CIFAR10/CIFAR100 (VGG, DenseNet, Wide-ResNet, ResNet). Our tiny ResNet CCNNs achieve accuracy competitive with their full-sized CNN counterparts. Our toy CCNN model trained on MNIST with augmentations achieves accuracy competitive with capsule networks (8.2 million parameters) and beyond the baseline CNN used in the CapsNet paper (35.4 million parameters) with just 93,833 parameters. 
 
-<img src="media/figure1.png" width="425"> <img src="media/figure2.png" width="425">
+<img src="media/figure1.png" width="600"> <img src="media/figure2.png" width="600">
 
 ## Requirements
 - Python 3
