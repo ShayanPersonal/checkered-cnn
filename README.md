@@ -10,6 +10,7 @@ Traditional          |  Checkered
 </center>
 
 Paper: [Improving the Resolution of CNN Feature Maps Efficiently with Multisampling](https://arxiv.org/abs/1805.10766)  
+Authors: [Shayan Sadigh](https://shayanpersonal.github.io/), [Pradeep Sen](https://web.ece.ucsb.edu/~psen/)  
 Slides: https://github.com/ShayanPersonal/checkered-cnn/blob/master/media/checkered_cnn_slides.pdf
 
 We present a new technique for increasing the receptive field of CNNs, checkered subsampling. Checkered subsampling layers generate drastically more informative feature maps than traditional subsampling layers and significantly improve the accuracy of modern CNNs in our experiments. Unlike dilation, checkered subsampling performs subsampling and reduces the complexity of deep layers. Checkered subsampling is part of a wider range of techniques we call multisampling.
