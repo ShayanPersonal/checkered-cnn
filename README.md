@@ -3,7 +3,7 @@ Checkered Convolutional Neural Networks
 
 <center>
 
-Traditional          |  Checkered
+Traditional subsampling layers          |  Checkered subsampling layers
 :-------------------------:|:-------------------------:
 ![Traditional subsampling](media/traditional_animation.gif)  |  ![Checkered subsampling](media/lattice_animation.gif)
 
