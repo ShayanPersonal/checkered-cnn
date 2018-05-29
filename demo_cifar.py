@@ -273,11 +273,11 @@ def demo(data_path, save="./save/", n_epochs=300, batch_size=64, seed=None, conv
     ])
 
     # Datasets
-    train_set = datasets.CIFAR10(data_path, train=True, transform=train_transforms, download=True)
-    test_set = datasets.CIFAR10(data_path, train=False, transform=test_transforms, download=False)
+    train_set = datasets.CIFAR100(data_path, train=True, transform=train_transforms, download=True)
+    test_set = datasets.CIFAR100(data_path, train=False, transform=test_transforms, download=False)
 
     # Model
-    model = ResNet18(10)
+    model = ResNet50(100)
 
     if convert:
         print("Converting to checkered CNN")

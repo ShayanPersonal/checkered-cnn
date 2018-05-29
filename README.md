@@ -49,12 +49,12 @@ To train our tiny CCNN on MNIST (replace data_path with your own path to MNIST, 
 ```bash
 python demo_mnist.py --data_path ../data/mnist
 ```
-To train ResNet18 as a CNN on CIFAR10 (replace data_path with your own path to CIFAR, will automatically be downloaded if you don't have it):
+To train ResNet50 as a CNN on CIFAR100 (replace data_path with your own path to CIFAR, will automatically be downloaded if you don't have it):
 ```bash
 python demo_cifar.py --data_path ../data/cifar
 ```
 
-To train ResNet18 as a CCNN on CIFAR10:
+To train ResNet50 as a CCNN on CIFAR100:
 ```bash
 python demo_cifar.py --data_path ../data/cifar --convert
 ```
