@@ -9,7 +9,7 @@ Traditional subsampling layers          |  Checkered subsampling layers
 
 </center>
 
-**Paper**: [Improving the Resolution of CNN Feature Maps Efficiently with Multisampling](https://arxiv.org/abs/1805.10766)  
+**Paper**: [[1805.10766] Improving the Resolution of CNN Feature Maps Efficiently with Multisampling](https://arxiv.org/abs/1805.10766)  
 **Authors**: [Shayan Sadigh](https://shayanpersonal.github.io/), [Pradeep Sen](https://web.ece.ucsb.edu/~psen/)  
 **Slides**: https://github.com/ShayanPersonal/checkered-cnn/blob/master/media/checkered_cnn_slides.pdf
 
