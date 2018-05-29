@@ -26,6 +26,11 @@ Checkered subsampling improves the accuracy of every architecture we test on CIF
 
 <img src="media/figure1.png" width="600"> <img src="media/figure2.png" width="600">
 
+### Citation
+If you find multisampling or checkered subsampling useful in your research, please consider citing:
+
+    TBA
+
 ## Requirements
 - Python 3
 - Pytorch 0.4
