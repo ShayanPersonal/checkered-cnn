@@ -96,8 +96,9 @@ class ResNet(nn.Module):
         out = checkpoint(self.layer4, x)
         """
 
-        x = self.layer0(x)
-        x = self.layer1(x)
+        # Add more checkpoints if running into memory problems.
+        x = checkpoint(self.layer0, x)
+        x = checkpoint(self.layer1, x)
         x = self.layer2(x)
         x = self.layer3(x)
         out = self.layer4(x)
