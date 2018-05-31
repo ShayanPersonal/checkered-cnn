@@ -159,6 +159,39 @@ def checkered_forward(self, x):
     return torch.stack(top_submaps + bottom_submaps, 2)
 
 
+def three_over_four_multisampling_forward(self, x):
+    # Experimental forward pass that chooses 3/4 samples from 2x2 sampling windows. May improve accuracy further,
+    # at the cost of increased computation.
+    assert self.stride < 3
+
+    #if 1 < self.depth < x.size(2):
+    #    x = torch.cat((x, F.pad(x[:, :, -self.depth+1:, 1:, :], (0, 0, 0, 1, 0, 0), mode="constant", value=0)), 2)
+
+    if self.padding:
+        x = F.pad(x, (self.padding, self.padding, self.padding, self.padding, 0, 0), mode="constant", value=0)
+
+    # If stride length is 1, no subsampling is necessary. Simply apply conv layer (just a 3D layer with stride=1).
+    if self.stride == 1:
+        return self.conv(x)
+
+    y_ul = self.conv(x)
+    y_dr = self.conv(F.pad(x[:, :, :, 1:, 1:], (0, 1, 0, 1, 0, 0), mode="constant", value=0))
+    y_ur = self.conv(F.pad(x[:, :, :, :, 1:], (0, 1, 0, 0, 0, 0), mode="constant", value=0))
+    y_dl = self.conv(F.pad(x[:, :, :, 1:, :], (0, 0, 0, 1, 0, 0), mode="constant", value=0))
+
+    submap_count = x.size(2)
+
+    tl_submaps = []
+    tr_submaps = []
+    br_submaps = []
+    for i in range(submap_count):
+        tl_submaps.append(y_ul[:, :, i, :, :])
+        br_submaps.append(y_dr[:, :, i, :, :])
+        tr_submaps.append(y_ur[:, :, i, :, :])
+
+    return torch.stack(tl_submaps + br_submaps + tr_submaps, 2)
+
+
 def complete_multisampling_forward(self, x):
     # Complete multisampling performs no subsampling. Equivalent to increasing dilation of all proceeding layers.
     # Definitely not recommended due to the extreme performance impact.
