@@ -1,5 +1,5 @@
-Checkered Convolutional Neural Networks
-===========================================
+Checkered Convolutional Neural Networks and Multisampling
+=======================================================
 
 <center>
 
@@ -13,7 +13,9 @@ Traditional subsampling layers          |  Checkered subsampling layers
 **Authors**: [Shayan Sadigh](https://shayanpersonal.github.io/), [Pradeep Sen](https://web.ece.ucsb.edu/~psen/)  
 **Slides**: https://github.com/ShayanPersonal/checkered-cnn/blob/master/media/checkered_cnn_slides.pdf
 
-We present a new technique for increasing the receptive field of CNNs, checkered subsampling. Checkered subsampling layers generate drastically more informative feature maps than traditional subsampling layers and significantly improve the accuracy of modern CNNs in our experiments. Unlike dilation, checkered subsampling performs subsampling and reduces the complexity of deep layers. Checkered subsampling is part of a wider range of techniques we call multisampling.
+We present a new technique for increasing the receptive field of CNNs, checkered subsampling. Checkered subsampling layers generate drastically more informative feature maps than traditional subsampling layers and significantly improve the accuracy of modern CNNs in our experiments. Unlike **dilation**, another popular technique used to increase receptive field, checkered subsampling performs *subsampling* and reduces the complexity of deep layers. Checkered subsampling is part of a wider range of techniques we call **multisampling**. 
+
+Multisampling is a generalization of current methods that allows you to control how much resolution you lose at each subsampling layer of your network. Traditional subsampling layers and dilated layers can be viewed as opposite, extreme cases of multisampling. A traditional subsampling layer with stride=k is equivalent to a multisampling layer that uses a k by k sampler that chooses only one element of each sampling window, the top-left corner, to sample. Increasing dilation by k times is equivalent to multisampling with a k by k sampler and choosing to sample *every* element.
 
 This repository contains:
 - Implementations of checkered layers and a conversion script for converting traditional CNNs into checkered CNNs (CCNNs) in **checkered_layers.py**. 
