@@ -102,3 +102,8 @@ def forward(self, x):
     x = self.fc(x)
     return x
 ```
+
+Also, if you're using a really funky custom architecture, the conversion script may not be able to handle it. We've only tested it on popular designs such as DenseNet, ResNet, VGG, and SqueezeNet. If you have a unique design that the conversion script doesn't handle, then you need to do one of two things:
+
+- Go through your architecture's code and replace each 2D layer with a checkered layer by hand (see CheckeredCNN in demo_mnist.py for an example of how to build a checkered CNN).
+- Add support for your architecture to the conversion script.
