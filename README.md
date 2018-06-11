@@ -13,7 +13,7 @@ Traditional subsampling layers          |  Checkered subsampling layers
 **Authors**: [Shayan Sadigh](https://shayanpersonal.github.io/), [Pradeep Sen](https://web.ece.ucsb.edu/~psen/)  
 **Slides**: https://github.com/ShayanPersonal/checkered-cnn/blob/master/media/checkered_cnn_slides.pdf
 
-**tldr:** Our proposed pooling layers generate denser feature maps and significantly improve the performance of CNNs in image classification.
+**tldr:** Our proposed strided layers generate much denser feature maps and significantly improve the performance of CNNs in image classification.
 
 We present a new technique for increasing the receptive field of CNNs, checkered subsampling. Checkered subsampling layers generate drastically more informative feature maps than traditional subsampling layers and significantly improve the accuracy of modern CNNs in our experiments. Unlike **dilation**, another popular technique used to increase receptive field, checkered subsampling performs *subsampling* and reduces the complexity of deep layers. Checkered subsampling is part of a wider range of techniques we call **multisampling**. 
 
