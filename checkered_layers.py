@@ -257,6 +257,6 @@ def convert_to_checkered(module):
             kernel_size, stride, padding, ceil_mode, count_include_pad = child.kernel_size, child.stride, child.padding, child.ceil_mode, child.count_include_pad
             replacement = CheckeredAvgPool2d(kernel_size, 1, stride, padding, ceil_mode, count_include_pad)
             setattr(module, name, replacement)
-        elif classname not in ['ReLU', 'Sigmoid', 'Sequential', 'Bottleneck', 'Linear']:
-            print("Warning: Detected layer that isn't handled by the conversion script: {}".format(classname))
-            print("In some cases this is fine, but if the layer name ends with '2d', then this will probably break your model.")
+        elif classname not in ['SELU', 'Tanh', 'ReLU', 'Sigmoid', 'Sequential', 'Bottleneck', 'Linear']:
+            print("Warning: Skipped a child that isn't handled by the conversion script: {}".format(classname))
+            print("This is only a problem for low-level layers that expect input with 2 spatial dimensions (e.g. if the layer name ends with '2d').")
