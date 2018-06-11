@@ -232,7 +232,7 @@ def convert_to_checkered(module):
             replacement = CheckeredConv2d(in_channels, out_channels, kernel_size, 1, stride, padding, dilation, groups, True if bias is not None else bias)
             replacement.conv.weight, replacement.conv.bias = nn.Parameter(child.weight.unsqueeze(2).data), child.bias
             setattr(module, name, replacement)
-        if classname == 'BatchNorm2d':
+        elif classname == 'BatchNorm2d':
             num_features, eps, momentum, affine, weight, bias, running_mean, running_var = child.num_features, child.eps, child.momentum, child.affine, child.weight, child.bias, child.running_mean, child.running_var
             replacement = nn.BatchNorm3d(num_features, eps, momentum, affine)
             replacement.weight, replacement.bias, replacement.running_mean, replacement.running_var = weight, bias, running_mean, running_var
@@ -257,3 +257,6 @@ def convert_to_checkered(module):
             kernel_size, stride, padding, ceil_mode, count_include_pad = child.kernel_size, child.stride, child.padding, child.ceil_mode, child.count_include_pad
             replacement = CheckeredAvgPool2d(kernel_size, 1, stride, padding, ceil_mode, count_include_pad)
             setattr(module, name, replacement)
+        elif classname not in ['ReLU', 'Sigmoid', 'Sequential', 'Bottleneck', 'Linear']:
+            print("Warning: Detected layer that isn't handled by the conversion script: {}".format(classname))
+            print("In some cases this is fine, but if the layer name ends with '2d', then this will probably break your model.")
