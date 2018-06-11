@@ -100,11 +100,3 @@ def forward(self, x):
     x = self.fc(x)
     return x
 ```
-
-```python
-def forward(self, x):
-    x = x.unsqueeze(2)
-    x = layer1(x)
-    x = layer2(x)
-    ....
-```
