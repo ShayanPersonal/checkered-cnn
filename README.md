@@ -107,3 +107,16 @@ Also, if you're using a really custom architecture, the conversion script may no
 
 - Go through your architecture's code and replace each 2D layer with a checkered layer by hand (**see CheckeredCNN in demo_mnist.py for an example of how to build a checkered CNN from scratch**).
 - Add support for the layers in your architecture to the conversion script (start at the convert_to_checkered method underneath checkered_layers.py). Use the already-provided code as an example for what you need to add in.
+
+
+## Currently supported Layers
+Our conversion script converts the following 2D layers to checkered or 3D layers:
+- Conv2d -> CheckeredConv2d
+- BatchNorm2d -> BatchNorm3d
+- Dropout2d -> Dropout3d
+- AdaptiveMaxPool2d -> AdaptiveMaxPool3d
+- AdaptiveAvgPool2d -> AdaptiveAvgPool3d
+- MaxPool2d -> MaxPool3d
+- AvgPool2d -> AvgPool3d
+
+If you're using an architecture with other types of layers you need to add in support for those layers yourself for now. Use the code in checkered_layers.py as a guide for how to do that.
