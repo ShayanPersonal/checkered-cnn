@@ -71,3 +71,40 @@ python demo_cifar.py --data_path ../data/cifar --convert
 ```
 
 If you want to customize stuff see each file for more information and arguments.
+
+
+## IMPORTANT
+If you apply "convert_to_checkered" on your own CNN, you must also modify the forward pass of your network to add a submap dimension to the input before any processing by CNN layers. This can be done by using torch's unsqueeze method to add a new dimension. The dimension must be added to where 3D layers expect the "depth" dimension to be.  Also, if you use methods from torch.nn.functional, you may have to replace them with their 3D versions or take the mean across the submap dimension before applying them. The conversion script cannot replace these function calls for you.
+
+For example, if your forward pass looks like this:
+```python
+def forward(self, x):
+    x = self.layer1(x)
+    x = self.layer2(x)
+    x = self.layer3(x)
+    x = self.layer4(x)
+    x = F.avg_pool2d(x, 7).view(x.size(0), -1)
+    x = self.fc(x)
+    return x
+```
+Modify it to look like this:
+```python
+def forward(self, x):
+    x = x.unsqueeze(2)
+    x = self.layer1(x)
+    x = self.layer2(x)
+    x = self.layer3(x)
+    x = self.layer4(x)
+    x = torch.mean(x, 2)
+    x = F.avg_pool2d(x, 7).view(x.size(0), -1)
+    x = self.fc(x)
+    return x
+```
+
+```python
+def forward(self, x):
+    x = x.unsqueeze(2)
+    x = layer1(x)
+    x = layer2(x)
+    ....
+```
