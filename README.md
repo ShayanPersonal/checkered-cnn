@@ -120,3 +120,6 @@ Our conversion script converts the following 2D layers to checkered or 3D layers
 - AvgPool2d -> AvgPool3d
 
 If you're using an architecture with other types of layers you need to add in support for those layers yourself for now. Use the code in checkered_layers.py as a guide for how to do that.
+
+## How do I build my own checkered CNN from scratch?
+Just build a CNN as normal as you normally would in Pytorch, except instead of using Conv2d layers used CheckeredConv2d layers, and all other 2D layers should be replaced with 3D versions (Dropout3D, BatchNorm3d...). Also, use x = x.unsqueeze(2) to add a submap dimension to your input at the start of your network. Since layers are all 3D, the input needs to be 5D (batch_size, channels, submaps (or "depth"), height, width). The starting number of submaps should be 1.
