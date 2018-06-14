@@ -33,13 +33,12 @@ Checkered subsampling improves the accuracy of every architecture we test on CIF
 ### Citation
 If you find multisampling or checkered subsampling useful in your research, please consider citing:
 
-    @ARTICLE{SadighSenMultisampling,
-        author = {{Sadigh}, S. and {Sen}, P.},
+    @ARTICLE{Sadigh2018,
+        author = {Shayan Sadigh and Pradeep Sen},
         title = "{Improving the Resolution of CNN Feature Maps Efficiently with Multisampling}",
         journal = {ArXiv e-prints},
         archivePrefix = "arXiv",
         eprint = {1805.10766},
-        primaryClass = "cs.CV",
         year = 2018,
     }
 
